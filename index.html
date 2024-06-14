@@ -27,6 +27,14 @@
                     });
             });
         }
+
+        document.getElementById("myForm").addEventListener("submit", function(event) {
+    event.preventDefault(); // Prevent form submission
+
+    // Clear the form
+    document.getElementById("myForm").reset();
+});
+
     </script>
 
 <style>
