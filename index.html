@@ -28,13 +28,14 @@
             });
         }
 
-        document.getElementById("myForm").addEventListener("submit", function(event) {
-    event.preventDefault(); // Prevent form submission
+   document.addEventListener("DOMContentLoaded", function() {
+  const form = document.getElementById("myForm"); // replace "myForm" with your form's ID
 
-    // Clear the form
-    document.getElementById("myForm").reset();
+  form.addEventListener("submit", function(event) {
+    event.preventDefault(); // prevent the form from submitting
+    this.reset(); // clear the form
+  });
 });
-
     </script>
 
 <style>
